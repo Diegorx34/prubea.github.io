@@ -1,0 +1,212 @@
+/* 
+    CSS de "recomendacion.html"
+    Creado para no sobresaturar "styles.css"
+    Aqui hay secciones especificas para "recomendacion.html"
+*/
+
+
+.creative-collage-section {
+    padding: 5rem 0;
+    background: hsl(var(--background));
+    position: relative;
+    overflow: hidden;
+}
+
+/* Fondo decorativo gradiente */
+.creative-collage-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to bottom, transparent, hsl(var(--primary) / 0.05), transparent);
+    pointer-events: none;
+}
+
+
+
+
+
+/* Grid tipo Masonry */
+.creative-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 280px;
+    gap: 1.25rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+/* Modificación: Diferentes tamaños para efecto masonry */
+.creative-item.large {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.creative-item.small {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+.creative-item.wide {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+.creative-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    background: hsl(var(--background-secondary));
+    border: 1px solid hsl(var(--border) / 0.5);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-smooth);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.creative-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glow);
+    border-color: hsl(var(--primary) / 0.5);
+}
+
+.creative-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-slow);
+}
+
+.creative-item:hover .creative-img {
+    transform: scale(1.1);
+    filter: brightness(0.75);
+}
+
+.creative-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5), transparent);
+    opacity: 0.7;
+    transition: var(--transition-smooth);
+}
+
+.creative-item:hover .creative-overlay {
+    opacity: 0.9;
+}
+
+.creative-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    transform: translateY(8px);
+    transition: var(--transition-smooth);
+}
+
+.creative-item:hover .creative-content {
+    transform: translateY(0);
+}
+
+.creative-line {
+    width: 75px;
+    height: 3px;
+    background: var(--gradient-primary);
+    margin-bottom: 1rem;
+    transition: var(--transition-smooth);
+}
+
+.creative-item:hover .creative-line {
+    width: 100%;
+}
+
+.creative-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.creative-title svg {
+    opacity: 0;
+    transform: translate(-6px, 6px);
+    transition: var(--transition-smooth);
+}
+
+.creative-item:hover .creative-title svg {
+    opacity: 1;
+    transform: translate(2px, -2px);
+}
+
+.creative-description {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: var(--transition-smooth);
+}
+
+.creative-item:hover .creative-description {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Efecto de brillo al hover */
+.creative-glow {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    background: linear-gradient(to top, hsl(var(--primary) / 0.2), transparent);
+    transition: var(--transition-smooth);
+    pointer-events: none;
+}
+
+.creative-item:hover .creative-glow {
+    opacity: 1;
+}
+
+
+
+@media (max-width: 768px) {
+  /* Creative Grid */
+.creative-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 250px;
+}
+
+.creative-item.large,
+.creative-item.small,
+.creative-item.wide {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+  /* Ajuste para márgenes de la sección */
+.creative-collage-section {
+    padding: 3rem 0;
+}
+
+.creative-content {
+    transform: translateY(30%);
+}
+
+}
+
+@media (max-width: 480px) {
+.creative-grid {
+    gap: 1rem;
+    grid-auto-rows: 220px;
+    
+}
+.creative-content {
+    transform: translateY(30%);
+}
+}

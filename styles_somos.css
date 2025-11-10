@@ -1,0 +1,147 @@
+/* 
+    CSS de "somos.html"
+    Creado para no sobresaturar "styles.css"
+    Aqui hay secciones especificas para "somos.html"
+*/
+
+
+.image-content-section {
+    padding: 5rem 0;
+    background: hsl(var(--background));
+}
+
+.image-content-section.reversed {
+    background: hsl(var(--background-secondary));
+}
+
+.image-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+   /* Ajuste: En la versión invertida, cambio en el orden visual */
+.image-content-section.reversed .image-content-image-wrapper {
+    order: 2;
+}
+
+.image-content-section.reversed .image-content-text {
+    order: 1;
+}
+
+.image-content-image-wrapper {
+    position: relative;
+}
+
+.image-content-image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-elegant);
+}
+
+.image-content-img {
+    width: 100%;
+    height: 500px;
+    object-fit:contain;
+    display: block;
+    transition: var(--transition-slow);
+}
+
+.image-content-image-container:hover .image-content-img {
+    transform: scale(1.15);
+}
+
+.image-content-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+    opacity: 0;
+    transition: var(--transition-smooth);
+}
+
+.image-content-image-container:hover .image-content-overlay {
+    opacity: 1;
+}
+
+.image-content-text {
+    padding: 1rem;
+}
+
+.image-content-subtitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: hsl(var(--accent));
+    margin-bottom: 1rem;
+}
+
+.image-content-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.image-content-description {
+    font-size: 1.125rem;
+    color: hsl(var(--foreground-light));
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+    /* Estilo para el enlace "Saber más" */
+.link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: hsl(var(--accent));
+    text-decoration: none;
+    transition: var(--transition-smooth);
+}
+
+.link-arrow:hover {
+    color: hsl(var(--primary));
+    gap: 1rem;
+}
+
+.link-arrow svg {
+    transition: var(--transition-smooth);
+}
+
+.link-arrow:hover svg {
+    transform: translateX(4px);
+}
+
+
+
+@media (max-width: 1024px) {
+    .image-content-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    }
+    
+    .image-content-section.reversed .image-content-image-wrapper,
+    .image-content-section.reversed .image-content-text {
+    order: initial;
+    }
+}
+
+@media (max-width: 768px) {
+    .image-content-img {
+    height: 350px;
+    }
+    
+    .image-content-text {
+    text-align: center;
+    }
+    
+    .link-arrow {
+    justify-content: center;
+    }
+}

@@ -1,0 +1,134 @@
+/* 
+    CSS de "articulos.html"
+    Creado para no sobresaturar "styles.css"
+    Aqui hay secciones especificas para "articulos.html"
+*/
+
+
+.collage-section {
+    padding: 5rem 0;
+    background: hsl(var(--background-secondary));
+}
+
+.collage-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.collage-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+    background: hsl(var(--background-tertiary));
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-smooth);
+    text-decoration: none;
+    cursor: pointer;
+    height: 280px;
+}
+
+.collage-item:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-glow);
+    border-color: hsl(var(--primary));
+}
+
+.collage-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-slow);
+}
+
+.collage-item:hover .collage-img {
+    transform: scale(1.1);
+}
+
+.collage-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2), transparent);
+    opacity: 0.6;
+    transition: var(--transition-smooth);
+}
+
+.collage-item:hover .collage-overlay {
+    opacity: 0.9;
+}
+
+.collage-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    transform: translateY(10px);
+    transition: var(--transition-smooth);
+}
+
+.collage-item:hover .collage-content {
+    transform: translateY(0);
+}
+
+.collage-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.collage-title svg {
+    opacity: 0;
+    transform: translate(-4px, 4px);
+    transition: var(--transition-smooth);
+}
+
+.collage-item:hover .collage-title svg {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+.collage-line {
+    height: 3px;
+    width: 0;
+    background: var(--gradient-primary);
+    transition: var(--transition-smooth);
+}
+
+.collage-item:hover .collage-line {
+    width: 100%;
+}
+
+
+
+/* 
+RESPONSIVE 
+*/
+
+@media (max-width: 768px) {
+  /* Collage Grid */
+    .collage-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    }
+    
+    .collage-item {
+    height: 220px;
+    }
+    
+
+}
+
+@media (max-width: 480px) {
+    .collage-grid {
+    grid-template-columns: 1fr;
+    }
+    
+}
